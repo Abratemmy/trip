@@ -1,0 +1,7 @@
+{
+  "name": "TripAlatApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
