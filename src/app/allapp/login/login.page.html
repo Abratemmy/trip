@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-img [src]="img"></ion-img>
+    <ion-buttons slot="end">
+        <ion-button class="button" color="success" [routerLink]="['/register']" >Signup</ion-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="contentimg">
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col size="10" class="login" style="margin-top: 30%; background-color: rgb(174, 216, 174); border-radius: 9px;">
+         <ion-list style="background-color: transparent; --margin-top: 40px;">
+           <h3 class="ion-text-center">Login</h3>
+
+           <div class="row" *ngIf="authError">
+              <div class="col-12 alert alert-danger">
+                  {{ authError?.message }}    
+              </div>
+          </div>
+
+           <ion-item color="rgb(32, 58, 49)" lines="green">
+             <ion-label position="floating">Email</ion-label>
+             <ion-input ngModel #email="ngModel" name="email" type="text"class="form-control"></ion-input> 
+             
+           </ion-item>
+     
+           <ion-item color="rgb(32, 58, 49)" lines="green">
+             <ion-label position="floating">Password</ion-label>
+             <ion-input ngModel #password="ngModel" name="password" type="password"class="form-control"></ion-input> 
+           </ion-item>
+ 
+           <ion-button fill="solid" expand="block"class="button" color="success" type="submit">Login</ion-button>
+         </ion-list>
+     
+        
+        </ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+ </ion-content>
+ 
