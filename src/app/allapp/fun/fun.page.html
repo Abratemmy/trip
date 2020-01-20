@@ -1,0 +1,51 @@
+<ion-header style="--background-color: rgb(22, 102, 252);">
+  <ion-toolbar >
+      <ion-buttons slot="start" >
+          <ion-back-button  color="light" defaultHref="tabs/tab1" icon="md-arrow-back" text=""></ion-back-button>
+      </ion-buttons>
+
+    <ion-title>fun</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="ion-no-padding">
+      <ion-card-header no-padding>
+        <div style="width:100%;text-align: center;align-content: center;align-self: center;">
+          <img src="https://cdn.pixabay.com/photo/2019/11/23/11/33/mobile-phone-4646854__340.jpg" />
+        </div>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col size="10" class="ion-no-pdding">
+            <div class="jumbotron">
+               <h4 class="ion-text-center">Name where to have fun? </h4>
+            </div>
+             
+            <ion-item color="primary">
+                <ion-input class="form-control" #itemTitle style="--color: white;"></ion-input> 
+                <div class="input-group-addon hover-cursor" (click)="onAdd(itemTitle)">
+                <ion-icon slot="end" name="add-circle" size="large" color="success"></ion-icon>
+                </div>
+            </ion-item>
+             
+            <!-- this code display the places selected -->
+            <ion-list class="list-group" style="padding: 5px;">
+               <ion-item class="list-group-item"*ngFor="let item of toDoListArray" >
+                 
+                 <span class="hover-cursor" [class.text-success] = "item.isChecked">
+                    <ion-checkbox color="primary" [ngClass]="item.isChecked?'true': 'false'"></ion-checkbox> 
+                 </span>
+                 {{item.title}}
+                  <ion-icon name="trash" color="danger" slot="end" (click)="onDelete(item.$key)" ></ion-icon>                  
+               </ion-item>
+               <div> {{date}} </div>
+            </ion-list>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
