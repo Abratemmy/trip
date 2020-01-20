@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col ></ion-col>
+
+      <ion-col >
+        <ion-img [src]="logoRetina"></ion-img>
+      </ion-col>
+
+      <ion-col ></ion-col>   
+    </ion-row>
+  </ion-grid>
+
+  <ion-segment mode="md">
+    <ion-segment-button (ionSelect)="signinSegment()" href="#dogs" value="dogs" checked>
+      <ion-label>Sign in</ion-label>
+    </ion-segment-button>
+    <ion-segment-button (ionSelect)="signupSegment()" href="#cats" value="cats">
+      <ion-label>Sign up</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+<!-- Content codes start here -->
+<ion-content padding >
+  <div *ngIf="activeSegment==='signin'">
+      <ion-item>
+          <ion-input type="text" name="email" [(ngModel)]="logindata.email" placeholder="Email" clearInput></ion-input>
+        </ion-item>
+        <ion-item>
+              <ion-icon slot="end" name="eye-off"></ion-icon> 
+              <ion-input type="Password" name="password" [(ngModel)]="logindata.password" placeholder="Password" clearInput></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col><ion-button expand="full" (click)="loginmember()">SIGN IN</ion-button></ion-col>
+              <ion-col></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      
+        <!-- Here is the code for button logo -->
+        <ion-grid class="ion-text-center logo">
+          <ion-row>
+            <ion-col >SIGN IN WITH</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button expand="full">
+                <ion-icon slot="start" name="logo-facebook"></ion-icon>FACEBOOK
+              </ion-button>
+            </ion-col>
+      
+            <ion-col>
+              <ion-button expand="full">
+                <ion-icon slot="start" name="logo-google"></ion-icon>GOOGLE
+              </ion-button>
+            </ion-col>      
+          </ion-row>
+        </ion-grid>
+  </div>
+
+  <div *ngIf="activeSegment==='signup'">
+      <ion-item>
+          <ion-input type="text" name="firstname" [(ngModel)]="userdata.firstname"placeholder="First Name" clearInput></ion-input>
+      </ion-item>
+  
+      <ion-item>
+          <ion-input type="text" name="lastname" [(ngModel)]="userdata.lastname" placeholder="Last Name" clearInput></ion-input>
+      </ion-item>
+  
+      <ion-item>
+          <ion-input type="email" name="email" [(ngModel)]="userdata.email" placeholder="Email" clearInput></ion-input>
+      </ion-item>
+  
+      <ion-item>
+          <ion-input type="number" name="mobileno" [(ngModel)]="userdata.mobileno" placeholder="Mobile Number" clearInput></ion-input>
+      </ion-item>
+  
+      <ion-item>
+          <ion-input type="password" name="password" [(ngModel)]="userdata.password" placeholder="Password" clearInput></ion-input>
+      </ion-item>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col><ion-button expand="full" (click)="usermember()">SIGN UP</ion-button></ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      
+    </div>  
+
+
+
+</ion-content>
+
+
+<ion-footer no-border>
+  <ion-item class="ion-text-center">
+    <p>By logging in or Signing up,you are agreeing to Aitechma Private Policy and Terms of Use</p>
+  </ion-item>
+</ion-footer>

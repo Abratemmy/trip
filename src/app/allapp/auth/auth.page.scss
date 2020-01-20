@@ -1,0 +1,15 @@
+ion-header{
+    background: blue;
+}
+ion-segment-button{
+    --color: #cecbcb;
+    // --color-activated: white;
+    --color-checked: white;
+    //  --border-color: white;
+    --indicator-color-checked: white;
+
+}
+.logo{
+    --margin: 5px;
+    background: rgb(207, 198, 198);
+}
